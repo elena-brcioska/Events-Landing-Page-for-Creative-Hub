@@ -1,0 +1,43 @@
+#navbar {
+  top: 0;
+}
+
+.price-tag {
+  font-size: 20px;
+}
+
+.price-mkd {
+  font-size: 20px;
+  margin-bottom: 10px;
+  float: right;
+  font-weight: bold;
+}
+
+.price-icon {
+  margin-right: 8px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #FAAD01;
+}
+
+button.add-to-card {
+  width: 100%;
+}
+
+i.cart-icon {
+  margin-right: 8px;
+}
+
+div.event-card div.card--footer {
+    overflow: visible;
+}
+
+div.card--footer div.card-btn-wrapper {
+    display: block;
+    margin-top: 16px;
+}
+
+img.academy-img {
+  width: 100%;
+  margin-bottom: 20px;
+}

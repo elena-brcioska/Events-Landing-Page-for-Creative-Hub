@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Meet Ups Landing Page</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Fontawesome -->
+  <script src="https://kit.fontawesome.com/f12e0b03f1.js" crossorigin="anonymous"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="shop.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR CODE -->
+
+  <div class="container-fluid navbar-container" id="navbar">
+    <div class="container">
+
+      <div class="navbar-user-controls">
+
+        <div class="navbar-user-buttons">
+
+          <div id="userControlBtn">
+            <button id="registerBtn" class="btn btn-main" type="button" name="button" data-toggle="modal" data-target="#registerUser">Регистрирај се</button>
+            <button id="loginBtn" class="btn btn-main" type="button" name="button" data-toggle="modal" data-target="#loginUser">Најави се</button>
+          </div>
+
+          <div id="loggedInUserControlBtn">
+            <button id="logoutBtn" class="btn btn-main" type="button" name="button">Одјави се</button>
+          </div>
+
+          <div class="dropdown">
+            <button id="cartBtn" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+              <img height="24" width="24" src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png">
+              <span id="cartItems"></span>
+            </button>
+
+            <div id="cartBtnItems" class="dropdown-menu dropdown-menu-right cart--items">
+              <div id="emptyCart" class="empty-cart">
+                <span>Нема производи во кошничката</span>
+              </div>
+              <div id="cartLogin" class="cart-login">
+                <button class="btn btn-main" type="button" name="button" data-toggle="modal" data-target="#loginUser">Најави се</button>
+              </div>
+
+              <div id="cartTotalPrice" class="cart-total-price">
+                <span class="total-price-tag">ВКУПНО:</span>
+                <span id="totalPrice" class="total-price"></span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- REGISTER MODAL -->
+
+        <div class="modal fade modal-register" id="registerUser" tabindex="-1" aria-labelledby="registerUserModalLabel" aria-hidden="true" data-backdrop="false">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3>Регистрирај се</h3>
+              </div>
+              <div class="modal-body">
+                <form id="registerForm" name="registerForm" method="post">
+
+                  <div class="form-group">
+                    <label for="name">Име и презиме</label>
+                    <input class="form-control" type="text" id="name" name="name" placeholder="e.g. Robin Barkley" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input class="form-control" type="email" id="email" name="email" placeholder="e.g. michael@outlook.com" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" id="password" name="password">
+                  </div>
+
+                  <p id="errorMsg" class="error-msg"></p>
+
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button id="submitRegistration" type="button" class="btn btn-block btn-main" data-toggle="modal" data-target="registerUser">Регистрирај се</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOGIN MODAL -->
+
+        <div class="modal fade modal-register" id="loginUser" tabindex="-1" aria-labelledby="loginUserModalLabel" aria-hidden="true" data-backdrop="false">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3>Најави се</h3>
+              </div>
+              <div class="modal-body">
+                <form id="loginForm" name="loginForm" method="post">
+
+                  <div class="form-group">
+                    <label for="loginEmail">E-mail</label>
+                    <input class="form-control" type="email" id="loginEmail" name="email" placeholder="e.g. michael@outlook.com" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input class="form-control" type="password" id="loginPassword" name="password" required>
+                  </div>
+
+                  <p id="errorMsgLogin" class="error-msg"></p>
+
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button id="submitLogin" type="button" class="btn btn-block btn-main" data-toggle="modal" data-target="loginUser">Најави се</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="navbar-top">
+        <img src="../Icons_Vectors/Navbar icons/Calling-navbar.svg" alt="phone icon">
+        <span>+389 71 214 849</span>
+
+        <div class="btn-group float-right">
+          <button type="button" class="btn dropdown-toggle navbar-btn" data-toggle="dropdown" aria-expanded="false">
+            Кампуси
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <button class="dropdown-item" type="button">Македонија</button>
+            <button class="dropdown-item" type="button">Косово</button>
+            <button class="dropdown-item" type="button">Мајами</button>
+            <button class="dropdown-item" type="button">Берлин</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar-line"></div>
+
+      <div class="navbar-bottom">
+        <img src="../Logos/Creative_Hub/CreativeHub_logo.png" alt="Creative Hub | Successfull Careers Made Possible">
+      </div>
+
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg bg-light navbar-mobile">
+    <a class="navbar-brand" href="#">
+      <img src="../Logos/Creative_Hub/Mobile logo navbar.svg" alt=""> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <img src="../Logos/Creative_Hub/Hamburger_menu.png" alt="">
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link  d-flex justify-content-between" href="#">Академии <span class="arrow">></span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link d-flex justify-content-between" href="#">Кариера <span class="arrow">></span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Платформа за вработување</a>
+        </li>
+
+        <li>
+          <div class="navbar-line"></div>
+        </li>
+
+        <li><img src="../Icons_Vectors/Navbar icons/Calling-navbar.svg" alt="phone icon">
+          <span class="tel">+389 71 214 849</span>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Кампус: <span class="campus">Македонија</span> </a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <!-- NAVBAR CODE END -->
+
+
+  <!-- SHOP -->
+  <div class="container">
+
+
+
+    <div id="shop" class="row shop">
+      <div class="col-md-12">
+        <h1>КУПИ КАРТА ЗА НАСТАНИ КОИ СЛЕДУВААТ</h1>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+
+  <div class="container-fluid" id="footer">
+
+    <div class="container">
+
+      <div class="row footer">
+        <div class="col-lg-3 col-md-4 footer-socials">
+
+          <img src="../Logos/Creative_Hub/Creativehub_logo_Footer.png" alt="Creative Hub Logo">
+          <div class="footer-line"></div>
+
+          <div class="social-icons">
+            <a href="#"><img src="../Icons_Vectors/Footer/facebook.svg" alt="facebook"></a>
+            <a href="#"><img src="../Icons_Vectors/Footer/Linked In.svg" alt="linkedin"></a>
+            <a href="#"><img src="../Icons_Vectors/Footer/instagram.svg" alt="instagram"></a>
+            <a href="#"><img src="../Icons_Vectors/Footer/pinterest.svg" alt="pinterest"></a>
+          </div>
+
+          <p>Стекни знаење, поврзи се и најди ја твојата идеална кариерна насока.</p>
+
+          <div class="btn-group footer-dropdown dropdown--desktop">
+            <button type="button" class="btn dropdown-toggle navbar-btn" data-toggle="dropdown" aria-expanded="false">
+              Македонија</button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <button class="dropdown-item" type="button">Македонија</button>
+              <button class="dropdown-item" type="button">Косово</button>
+              <button class="dropdown-item" type="button">Мајами</button>
+              <button class="dropdown-item" type="button">Берлин</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-6 footer--links">
+          <h5>Академии</h5>
+
+          <ul>
+            <li>
+              <a href="#">Дигитален Маркетинг</a>
+            </li>
+
+            <li>
+              <a class="active" href="#">Графички дизајн</a>
+            </li>
+
+            <li>
+              <a href="#">Човечки ресурси</a>
+            </li>
+
+            <li>
+              <a href="#">UX/UI дизајн</a>
+            </li>
+
+            <li>
+              <a href="#">Front-End</a>
+            </li>
+
+            <li>
+              <a href="#">Data Science</a>
+            </li>
+
+            <li>
+              <a href="#">Java</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-6 footer--links">
+          <h5>Кариера</h5>
+
+          <ul>
+            <li>
+              <a href="#">Hiring Platform</a>
+            </li>
+
+            <li>
+              <a href="#">Нашите студенти</a>
+            </li>
+
+            <li>
+              <a href="#">Хакатони</a>
+            </li>
+
+            <li>
+              <a href="#">UX/UI quests</a>
+            </li>
+
+            <li>
+              <a href="#">Front-End</a>
+            </li>
+
+            <li>
+              <a href="#">Data Science</a>
+            </li>
+
+            <li>
+              <a href="#">Java</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-4 contact col-6">
+          <h5>Контакт</h5>
+          <p>contact@creativehub.mk</p>
+          <p>+389 70 927 756</p>
+          <div class="btn-group footer-dropdown dropdown--mobile">
+            <button type="button" class="btn dropdown-toggle navbar-btn" data-toggle="dropdown" aria-expanded="false">
+              Македонија</button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <button class="dropdown-item" type="button">Македонија</button>
+              <button class="dropdown-item" type="button">Косово</button>
+              <button class="dropdown-item" type="button">Мајами</button>
+              <button class="dropdown-item" type="button">Берлин</button>
+            </div>
+          </div>
+        </div>
+        <a class="scroll-to-top" href="#hero"><img src="../Icons_Vectors/Footer/Scroll to top.svg" alt="Scroll To Top"></a>
+
+      </div>
+
+      <div class="footer-line"></div>
+
+      <div class="row" id="footer-bottom">
+        <div class="col-md-12">
+          <span>© Copyright 2021 Creative Hub</span>
+          <ul>
+            <li>
+              <a href="#">Политика за приватност</a>
+            </li>
+
+            <li>
+              <a href="#">Општи правила и услови</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <script type="module" src="shop.mjs" charset="utf-8"></script>
+</body>
+
+</html>
