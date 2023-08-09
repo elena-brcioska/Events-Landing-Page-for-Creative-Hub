@@ -1,4 +1,4 @@
-<h1>Events Landing Page for Creative Hub - React Project</h1>
+<h1>Events Landing Page for Creative Hub</h1>
 
 
 <h2>Description</h2>
